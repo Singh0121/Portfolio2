@@ -1,8 +1,16 @@
 const Hero = () => {
   return (
-    <section className="relative min-h-[75vh] md:min-h-[80vh] overflow-hidden rounded-2xl md:rounded-3xl border border-border shadow-[0_10px_40px_rgba(0,0,0,0.5)] mx-2 md:mx-6 mt-4 bg-gradient-to-br from-black via-gray-900 to-black">
-      <div className="absolute inset-0 bg-gradient-to-tr from-red-900/20 via-transparent to-blue-900/20" />
-      <div className="absolute inset-0 bg-black/40" />
+    <section className="relative min-h-[75vh] md:min-h-[80vh] overflow-hidden rounded-2xl md:rounded-3xl border border-border shadow-[0_10px_40px_rgba(0,0,0,0.5)] mx-2 md:mx-6 mt-4 bg-black">
+      <iframe
+        allow="autoplay; gyroscope;"
+        allowFullScreen
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        referrerPolicy="strict-origin"
+        src="https://www.kapwing.com/e/68e567d370291144f06eab4b?autoplay=1&muted=1&loop=1"
+        style={{ border: 0 }}
+        title="Background Video"
+      />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20">
