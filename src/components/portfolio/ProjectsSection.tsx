@@ -24,8 +24,6 @@ const projects: Project[] = [
     ],
     icon: "👨‍💻",
     gradient: "from-blue-500/20 to-purple-500/20",
-    backgroundImage: "/smart-attendance-bg.jpg",
-    backgroundVideo: "/smart-attendance-intro.mp4",
     hideCardDescription: true
   },
   {
@@ -46,8 +44,7 @@ const projects: Project[] = [
     ],
     icon: "🧠",
     gradient: "from-green-500/20 to-teal-500/20",
-    hideCardDescription: true,
-    backgroundVideo: "/brain-tumor-intro.mp4"
+    hideCardDescription: true
   },
   {
     id: "3",
@@ -66,8 +63,7 @@ const projects: Project[] = [
       "Yeh gloves nahi, superhero ka equipment hai!"
     ],
     icon: "🧤",
-    gradient: "from-red-500/20 to-orange-500/20",
-    backgroundVideo: "/obstacle-gloves-intro.mp4"
+    gradient: "from-red-500/20 to-orange-500/20"
   }
 ];
 

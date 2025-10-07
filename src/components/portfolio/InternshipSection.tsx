@@ -25,15 +25,7 @@ const InternshipSection = () => {
           className="relative bg-card border border-border rounded-lg p-8 hover:border-accent transition-all duration-300 hover:shadow-[0_0_30px_rgba(229,9,20,0.2)] group cursor-pointer overflow-hidden"
           onClick={() => setOpen(true)}
         >
-          {/* Background video */}
-          <video
-            className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-45 transition-opacity"
-            src="/cpcl-intro.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-gray-900 to-black" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
 
           <div className="flex items-start gap-6">
