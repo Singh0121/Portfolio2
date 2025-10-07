@@ -17,9 +17,9 @@ const SearchModal = ({ open, onClose }: { open: boolean; onClose: () => void }) 
   // Mock data - in a real app, this would come from props or context
   const allItems: SearchResult[] = [
     // Projects
-    { id: "1", title: "Smart Attendance System", type: "project", description: "AI-powered attendance tracking using facial recognition", icon: "👨‍💻" },
-    { id: "2", title: "Brain Tumor Detection Using ML", type: "project", description: "Medical imaging analysis for early tumor detection", icon: "🧠" },
-    { id: "3", title: "Obstacle Detection Gloves", type: "project", description: "Wearable sensor gloves for obstacle detection", icon: "🧤" },
+    { id: "1", title: "Smart Attendance System", type: "project", description: "AI-powered attendance tracking using facial recognition", icon: "" },
+    { id: "2", title: "Brain Tumor Detection Using ML", type: "project", description: "Medical imaging analysis for early tumor detection", icon: "" },
+    { id: "3", title: "Obstacle Detection Gloves", type: "project", description: "Wearable sensor gloves for obstacle detection", icon: "" },
     
     // Skills
     { id: "4", title: "Python", type: "skill", description: "Snake game se shuru, AI tak pohcha", icon: "🐍" },
@@ -37,7 +37,7 @@ const SearchModal = ({ open, onClose }: { open: boolean; onClose: () => void }) 
     { id: "14", title: "OrCAD PSpice", type: "certification", description: "Livewire (Apr 2023)", icon: "⚡" },
     
     // Internship
-    { id: "15", title: "Chennai Petroleum Corporation Ltd", type: "internship", description: "Instrumentation Intern - Industrial automation and safety systems", icon: "🏭" }
+    { id: "15", title: "Chennai Petroleum Corporation Ltd", type: "internship", description: "Instrumentation Intern - Industrial automation and safety systems", icon: "" }
   ];
 
   useEffect(() => {
