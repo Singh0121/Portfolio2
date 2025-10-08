@@ -3,6 +3,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 
 const InternshipSection = () => {
   const [open, setOpen] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const description =
     "Ek Intern Ki Kahaani (An Instrumentation Intern's Story)\n\n" +
     "Scene: The sprawling industrial kingdom of Chennai Petroleum Corporation Limited (CPCL).\n" +
@@ -25,11 +27,44 @@ const InternshipSection = () => {
           className="relative bg-card border border-border rounded-lg p-8 hover:border-accent transition-all duration-300 hover:shadow-[0_0_30px_rgba(229,9,20,0.2)] group cursor-pointer overflow-hidden"
           onClick={() => setOpen(true)}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-gray-900 to-black" />
+          {!videoError ? (
+            <>
+              <video
+                className={`absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-500 ${videoLoaded ? 'opacity-30' : 'opacity-0'}`}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                onError={() => setVideoError(true)}
+                onLoadedData={() => setVideoLoaded(true)}
+                onCanPlay={() => setVideoLoaded(true)}
+                onLoadStart={() => console.log('CPCL video loading started')}
+                onError={(e) => {
+                  console.error('CPCL video error:', e);
+                  setVideoError(true);
+                }}
+              >
+                <source src="/cpcl-intro.mp4" type="video/mp4" />
+                <source src="./cpcl-intro.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              {!videoLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-gray-900 to-black flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-accent mx-auto mb-2"></div>
+                    <p className="text-xs">Loading CPCL experience...</p>
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-gray-900 to-black" />
+          )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
 
           <div className="flex items-start gap-6">
-            <div className="text-6xl relative z-10"></div>
+            <div className="text-6xl relative z-10">🏭</div>
             <div className="flex-1 relative z-10">
               <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                 Chennai Petroleum Corporation Ltd
