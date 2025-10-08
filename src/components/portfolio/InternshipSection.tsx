@@ -15,7 +15,7 @@ const InternshipSection = () => {
     <section id="internships" className="py-20 px-4 md:px-8 bg-gradient-to-b from-background to-secondary/20">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-          Internship Diaries 🎥
+          Internship Diaries
         </h2>
         <p className="text-muted-foreground mb-12 text-lg italic">
           "Boss bola 'Tumse na ho payega' – maine kar dikhaya!"
@@ -37,7 +37,7 @@ const InternshipSection = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
 
           <div className="flex items-start gap-6">
-            <div className="text-6xl relative z-10">🏭</div>
+            <div className="text-6xl relative z-10"></div>
             <div className="flex-1 relative z-10">
               <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                 Chennai Petroleum Corporation Ltd
@@ -61,7 +61,7 @@ const InternshipSection = () => {
 
               <div className="mt-6 p-4 bg-secondary/50 rounded border-l-4 border-accent">
                 <p className="text-sm italic text-foreground">
-                  "Internship mein seekha – theory aur practical mein utna hi difference hai jitna Golmaal 1 aur Golmaal Returns mein!" 😄
+                  "Internship mein seekha – theory aur practical mein utna hi difference hai jitna Golmaal 1 aur Golmaal Returns mein!"
                 </p>
               </div>
             </div>

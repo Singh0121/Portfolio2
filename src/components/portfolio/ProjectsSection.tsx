@@ -22,7 +22,7 @@ const projects: Project[] = [
       "Mere paas Face Recognition hai.",
       "Classroom efficiency: ON. Proxy attendance: GAME OVER."
     ],
-    icon: "👨‍💻",
+    icon: "",
     gradient: "from-blue-500/20 to-purple-500/20",
     backgroundImage: "/smart-attendance-bg.jpg",
     backgroundVideo: "/smart-attendance-intro.mp4",
@@ -40,11 +40,11 @@ const projects: Project[] = [
     tools: ["MATLAB", "ImageJ", "WEKA", "Machine Learning"],
     results: "90%+ accuracy in tumor classification and detection",
     dialogues: [
-      "AI bhi bola – All izz well! 🎓",
+      "AI bhi bola – All izz well!",
       "Yeh scanner nahi, life-saver hai!",
       "Picture abhi baaki hai mere dost – diagnosis ka!"
     ],
-    icon: "🧠",
+    icon: "",
     gradient: "from-green-500/20 to-teal-500/20",
     hideCardDescription: true,
     backgroundVideo: "/brain-tumor-intro.mp4"
@@ -61,11 +61,11 @@ const projects: Project[] = [
     tools: ["Arduino Nano", "C Programming", "Sensors", "Embedded Systems"],
     results: "Real-time obstacle detection with haptic feedback",
     dialogues: [
-      "Manjulika bhi in gloves se nahi bachti! 👻",
+      "Manjulika bhi in gloves se nahi bachti!",
       "Andhe ko bhi rasta dikhane wali technology!",
       "Yeh gloves nahi, superhero ka equipment hai!"
     ],
-    icon: "🧤",
+    icon: "",
     gradient: "from-red-500/20 to-orange-500/20",
     backgroundVideo: "/obstacle-gloves-intro.mp4"
   }
