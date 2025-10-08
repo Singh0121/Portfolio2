@@ -1,15 +1,53 @@
+import { useState } from "react";
+
 const Hero = () => {
+  const [videoError, setVideoError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
+
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
+  };
+
   return (
     <section className="relative min-h-[75vh] md:min-h-[80vh] overflow-hidden rounded-2xl md:rounded-3xl border border-border shadow-[0_10px_40px_rgba(0,0,0,0.5)] mx-2 md:mx-6 mt-4 bg-black">
-      <iframe
-        allow="autoplay; gyroscope;"
-        allowFullScreen
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        referrerPolicy="strict-origin"
-        src="https://www.kapwing.com/e/68e567d370291144f06eab4b?autoplay=1&muted=1&loop=1"
-        style={{ border: 0 }}
-        title="Background Video"
-      />
+      {!videoError ? (
+        <>
+          <video
+            className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onError={handleVideoError}
+            onLoadedData={handleVideoLoad}
+            onCanPlay={handleVideoLoad}
+          >
+            <source src="/intro.mp4" type="video/mp4" />
+            <source src="./intro.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {!videoLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-black to-red-900/20 flex items-center justify-center">
+              <div className="text-center text-muted-foreground">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent mx-auto mb-2"></div>
+                <p className="text-sm">Loading cinematic experience...</p>
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-black to-red-900/20 flex items-center justify-center">
+          <div className="text-center text-muted-foreground">
+            <div className="text-4xl mb-2">🎬</div>
+            <p className="text-sm">Video unavailable - Enjoying the show anyway!</p>
+          </div>
+        </div>
+      )}
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
