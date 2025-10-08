@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { X, Search } from "lucide-react";
+import { Project } from "@/types/portfolio";
 
 interface SearchResult {
   id: string;
@@ -14,30 +15,35 @@ const SearchModal = ({ open, onClose }: { open: boolean; onClose: () => void }) 
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
 
-  // Mock data - in a real app, this would come from props or context
+  // Real data from the actual components
   const allItems: SearchResult[] = [
     // Projects
-    { id: "1", title: "Smart Attendance System", type: "project", description: "AI-powered attendance tracking using facial recognition", icon: "" },
-    { id: "2", title: "Brain Tumor Detection Using ML", type: "project", description: "Medical imaging analysis for early tumor detection", icon: "" },
-    { id: "3", title: "Obstacle Detection Gloves", type: "project", description: "Wearable sensor gloves for obstacle detection", icon: "" },
+    { id: "1", title: "Smart Attendance System", type: "project", description: "AI-powered attendance tracking using facial recognition with CNN and OpenCV", icon: "📱" },
+    { id: "2", title: "Brain Tumor Detection Using ML", type: "project", description: "Medical imaging analysis for early tumor detection using MATLAB and WEKA", icon: "🧠" },
+    { id: "3", title: "Obstacle Detection Gloves", type: "project", description: "Wearable sensor gloves for obstacle detection using Arduino and ultrasonic sensors", icon: "🧤" },
     
     // Skills
-    { id: "4", title: "Python", type: "skill", description: "Snake game se shuru, AI tak pohcha", icon: "🐍" },
-    { id: "5", title: "Java", type: "skill", description: "Coffee peeke code likhta hoon", icon: "☕" },
-    { id: "6", title: "Machine Learning", type: "skill", description: "AI se dosti, ML se yaari", icon: "🤖" },
-    { id: "7", title: "OOPS", type: "skill", description: "Objects, classes aur full-on reusability ka tadka", icon: "🧱" },
-    { id: "8", title: "Digital Electronics", type: "skill", description: "0 aur 1 se banayi filmi kahaani", icon: "⚡" },
-    { id: "9", title: "MS Excel", type: "skill", description: "Sheets mein data, formulas ka dhamaka", icon: "📈" },
-    { id: "10", title: "Team Collaboration", type: "skill", description: "Squad ke saath kaam, delivery super fast", icon: "🤝" },
+    { id: "4", title: "C Programming", type: "skill", description: "Code likhta hoon, compiler clap karta hai", icon: "💻" },
+    { id: "5", title: "Python", type: "skill", description: "Snake game se shuru, AI tak pohcha", icon: "🐍" },
+    { id: "6", title: "Java", type: "skill", description: "Coffee peeke code likhta hoon", icon: "☕" },
+    { id: "7", title: "SQL", type: "skill", description: "Data ka database, queries ka badshah", icon: "🗄️" },
+    { id: "8", title: "Embedded Systems", type: "skill", description: "Hardware aur software ka pyaar", icon: "🔌" },
+    { id: "9", title: "DSA", type: "skill", description: "Algorithm ki duniya ka hero", icon: "📊" },
+    { id: "10", title: "Machine Learning", type: "skill", description: "AI se dosti, ML se yaari", icon: "🤖" },
+    { id: "11", title: "Problem Solving", type: "skill", description: "Bug fix karna mera passion hai", icon: "🧩" },
+    { id: "12", title: "OOPS", type: "skill", description: "Objects, classes aur full-on reusability ka tadka", icon: "🧱" },
+    { id: "13", title: "Digital Electronics", type: "skill", description: "0 aur 1 se banayi filmi kahaani", icon: "⚡" },
+    { id: "14", title: "MS Excel", type: "skill", description: "Sheets mein data, formulas ka dhamaka", icon: "📈" },
+    { id: "15", title: "Team Collaboration", type: "skill", description: "Squad ke saath kaam, delivery super fast", icon: "🤝" },
     
     // Certifications
-    { id: "11", title: "Python for Data Science", type: "certification", description: "NPTEL (Mar 2025)", icon: "🐍" },
-    { id: "12", title: "Java", type: "certification", description: "HackerRank (Feb 2025)", icon: "☕" },
-    { id: "13", title: "Computer Architecture", type: "certification", description: "NPTEL (Jul 2023)", icon: "🏗️" },
-    { id: "14", title: "OrCAD PSpice", type: "certification", description: "Livewire (Apr 2023)", icon: "⚡" },
+    { id: "16", title: "Python for Data Science", type: "certification", description: "NPTEL (Mar 2025)", icon: "🐍" },
+    { id: "17", title: "Java", type: "certification", description: "HackerRank (Feb 2025)", icon: "☕" },
+    { id: "18", title: "Computer Architecture", type: "certification", description: "NPTEL (Jul 2023)", icon: "🏗️" },
+    { id: "19", title: "OrCAD PSpice", type: "certification", description: "Livewire (Apr 2023)", icon: "⚡" },
     
     // Internship
-    { id: "15", title: "Chennai Petroleum Corporation Ltd", type: "internship", description: "Instrumentation Intern - Industrial automation and safety systems", icon: "" }
+    { id: "20", title: "Chennai Petroleum Corporation Ltd", type: "internship", description: "Instrumentation Intern - Industrial automation and safety systems", icon: "🏭" }
   ];
 
   useEffect(() => {
@@ -52,6 +58,21 @@ const SearchModal = ({ open, onClose }: { open: boolean; onClose: () => void }) 
       setResults([]);
     }
   }, [query]);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Close search with Escape
+      if (e.key === 'Escape' && open) {
+        onClose();
+      }
+    };
+
+    if (open) {
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [open, onClose]);
 
   const getTypeColor = (type: string) => {
     switch (type) {
